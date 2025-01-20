@@ -23,7 +23,7 @@ The options of `cmdAction` are `plan`, `apply`, `destroy` and ``validate`
 
 3. deploy with terraform apply
 ```powershell
-\run-terraform.ps1 -envFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\envs\nonprod.env" -varFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\root\nonprod.tfvars" -cmdAction "apply" 
+.\run-terraform.ps1 -envFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\envs\nonprod.env" -varFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\root\nonprod.tfvars" -cmdAction "apply" 
 ```
 
 ## Create Azure Access Credentials
