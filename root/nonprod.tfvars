@@ -1,0 +1,5 @@
+resource_group_name  = "cloud-shell-rg"
+location             = "East US"
+storage_account_name = "cloudshellstorage01"
+file_share_name      = "cloudshellfileshare"
+file_share_quota     = "10"
