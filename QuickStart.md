@@ -5,9 +5,11 @@
 1. upgrade the terraform root
 ```powershell
 # cd to the root module
-$env:PROJ_ROOT="C:\Users\yingdingwang\Documents\VCS\local\azuretemplates"
+$env:WORK_DIR= "<your project workdir>"
+$env:PROJ_ROOT="$env:WORK_DIR\azure_iac_templates"
 $env:MODULE_ROOT="$env:PROJ_ROOT\root"
 cd "$env:MODULE_ROOT";
+# init terraform
 terraform init -upgrade;
 ```
 
@@ -16,7 +18,8 @@ terraform init -upgrade;
 **Note**: cd to the root module first
 
 ```powershell
-.\run-terraform.ps1 -envFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\envs\nonprod.env" -varFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\root\nonprod.tfvars" -cmdAction "plan"
+cd "$env:MODULE_ROOT";
+.\run-terraform.ps1 -envFilePath "$env:PROJ_ROOT\envs\nonprod.env" -varFilePath "$env:PROJ_ROOT\root\nonprod.tfvars" -cmdAction "plan"
 ```
 Notice:
 * from office, no vpn necessary
@@ -25,7 +28,8 @@ The options of `cmdAction` are `plan`, `apply`, `destroy` and ``validate`
 
 3. deploy with terraform apply
 ```powershell
-.\run-terraform.ps1 -envFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\envs\nonprod.env" -varFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\root\nonprod.tfvars" -cmdAction "apply" 
+cd "$env:MODULE_ROOT";
+.\run-terraform.ps1 -envFilePath "$env:PROJ_ROOT\envs\nonprod.env" -varFilePath "$env:PROJ_ROOT\root\nonprod.tfvars" -cmdAction "apply" 
 ```
 
 ## Create Azure Access Credentials
