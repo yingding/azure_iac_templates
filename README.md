@@ -7,4 +7,4 @@ The environment can be switch by providing the appropriate credentials in `envs/
 
 ## Quick Start Guide
 
-see [Quck Start](./QuickStart.md) guide to start.
+see [Quick Start](./QuickStart.md) guide to start.
