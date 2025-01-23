@@ -2,12 +2,10 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      # version = "~>3.114.0" 
       version = "~> 4.15.0" # "~>3.114.0" 
     }
     azuread = {
       source  = "hashicorp/azuread"
-      # version = "~> 2.53.1"
       version = "~> 3.0.2" # "~> 2.53.1"
     }
   }
@@ -36,9 +34,24 @@ data "azurerm_subscription" "current" {}
 # create cloud shell resources
 module "cloud_shell" {
   source               = "../azure_cloud_shell" # Path to the module
-  resource_group_name  = var.resource_group_name
-  location             = var.location
-  storage_account_name = var.storage_account_name
-  file_share_name      = var.file_share_name
-  file_share_quota     = var.file_share_quota
+  resource_group_name  = var.cloud_shell_rg_name
+  location             = var.cloud_shell_location
+  storage_account_name = var.cloud_shell_storage_account_name
+  file_share_name      = var.cloud_shell_file_share_name
+  file_share_quota     = var.cloud_shell_file_share_quota
+}
+
+# create Azure AI multi services account
+module "ai_multi_svcs" {
+  source = "../azure_ai_multi_services_account"
+  resource_group_name = var.ai_multi_svcs_rg_name
+  location = var.ai_multi_svcs_location
+  ai_multi_svcs_account_name = var.ai_multi_svcs_account_name
+  ai_multi_svcs_sku_name = var.ai_multi_svcs_sku_name
+}
+output "ai_multi_svcs_account_name" {
+  value = module.ai_multi_svcs.ai_multi_svcs_account_name
+}
+output "ai_multi_svcs_sku_name" {
+  value = module.ai_multi_svcs.ai_multi_svcs_sku_name
 }

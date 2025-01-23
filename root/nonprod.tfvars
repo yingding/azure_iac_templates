@@ -3,3 +3,8 @@ location             = "East US"
 storage_account_name = "cloudshellstorage01"
 file_share_name      = "cloudshellfileshare"
 file_share_quota     = "10"
+
+ai_multi_svcs_rg_name = "sandbox-ai-multi-svcs-rg"
+ai_multi_svcs_account_name   = "sandboxaimultisvcsaccount01"
+ai_multi_svcs_location = "East US"
+ai_multi_svcs_sku_name = "S0"

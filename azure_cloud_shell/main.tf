@@ -9,6 +9,11 @@ resource "azurerm_storage_account" "cloud_shell_sa" {
   location                 = azurerm_resource_group.cloud_shell_rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  allow_nested_items_to_be_public = false
+  # this tag will be added to the resource automatically, while choosing this storage account for the cloud shell in azure portal
+  tags = {
+    "ms-resource-usage" = "azure-cloud-shell"
+  }
 }
 
 resource "azurerm_storage_share" "cloud_shell_share" {

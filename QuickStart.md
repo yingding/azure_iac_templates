@@ -13,6 +13,8 @@ terraform init -upgrade;
 
 2. set the connection info in `/envs` to plan
 
+**Note**: cd to the root module first
+
 ```powershell
 .\run-terraform.ps1 -envFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\envs\nonprod.env" -varFilePath "C:\Users\yingdingwang\Documents\VCS\local\azuretemplates\root\nonprod.tfvars" -cmdAction "plan"
 ```
